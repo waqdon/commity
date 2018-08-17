@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".WelcomeActivity">
+
+    <include layout="@layout/toolbar"/>
+
+    <ImageView
+        android:layout_width="330dp"
+        android:layout_height="187dp"
+        android:layout_marginTop="18.5dp"
+        android:layout_gravity="center_horizontal"
+        android:scaleType="fitCenter"
+        android:src="@drawable/banner_ygph_sy"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="135dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1.0"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/icon_ygph_sy_information" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="12dp"
+                android:textSize="13sp"
+                android:text="热门资讯"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1.0"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/icon_ygph_sy_me" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="12dp"
+                android:textSize="13sp"
+                android:text="新手攻略"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/item_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="22.5dp"
+        android:paddingRight="22.5dp">
+
+        <RelativeLayout
+            android:layout_width="160dp"
+            android:layout_height="70dp"
+            android:background="#FFF9F9FB"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/simple"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14.5dp"
+                android:layout_marginLeft="10.5dp"
+                android:text="简单申请"
+                android:textColor="#FF605D71"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/simple_desc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10.5dp"
+                android:layout_marginBottom="14.5dp"
+                android:layout_below="@+id/simple"
+                android:layout_marginTop="9px"
+                android:text="操作简单便捷"
+                android:textColor="#DAD9E1"
+                android:textSize="12sp" />
+
+            <ImageView
+                android:scaleType="centerCrop"
+                android:layout_width="24dp"
+                android:layout_height="40dp"
+                android:layout_marginRight="22dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/image_ygph_sy_1" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="160dp"
+            android:layout_height="70dp"
+            android:layout_alignParentRight="true"
+            android:background="#FFF9F9FB"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/fast"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14.5dp"
+                android:layout_marginLeft="9dp"
+                android:text="快速审批"
+                android:textColor="#FF605D71"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/fast_desc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="14.5dp"
+                android:layout_marginLeft="9dp"
+                android:layout_below="@+id/fast"
+                android:text="减少等待时间"
+                android:textColor="#DAD9E1"
+                android:textSize="12sp" />
+
+            <ImageView
+                android:scaleType="centerCrop"
+                android:layout_width="27.5dp"
+                android:layout_height="33.5dp"
+                android:layout_marginRight="19.5dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/image_ygph_sy_2" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/item_3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:paddingLeft="22.5dp"
+        android:paddingRight="22.5dp">
+
+        <RelativeLayout
+            android:layout_width="160dp"
+            android:layout_height="70dp"
+            android:background="#FFF9F9FB"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/rate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14.5dp"
+                android:layout_marginLeft="10.5dp"
+                android:text="费率优惠"
+                android:textColor="#FF605D71"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/rate_desc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rate"
+                android:layout_marginLeft="10.5dp"
+                android:layout_marginBottom="14.5dp"
+                android:text="给予更多优惠"
+                android:textColor="#DAD9E1"
+                android:textSize="12sp" />
+
+            <ImageView
+                android:scaleType="centerCrop"
+                android:layout_width="21.5dp"
+                android:layout_height="39dp"
+                android:layout_marginRight="20.5dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/image_ygph_sy_3" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="160dp"
+            android:layout_height="70dp"
+            android:layout_alignParentRight="true"
+            android:background="#FFF9F9FB"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/term"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14.5dp"
+                android:layout_marginLeft="9dp"
+                android:text="期限灵活"
+                android:textColor="#FF605D71"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/term_desc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="14.5dp"
+                android:layout_marginLeft="9dp"
+                android:layout_below="@+id/term"
+                android:layout_marginTop="9px"
+                android:text="多种期限任选"
+                android:textColor="#DAD9E1"
+                android:textSize="12sp" />
+
+            <ImageView
+                android:scaleType="centerCrop"
+                android:layout_width="22.5dp"
+                android:layout_height="34dp"
+                android:layout_marginRight="22dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/image_ygph_sy_4" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <Button
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="34dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="快速申请"
+        android:textSize="18sp"
+        android:textColor="#ffffff"
+        android:paddingBottom="15dp"
+        android:background="@drawable/button_ygph_sy_default"/>
+
+
+</LinearLayout>
