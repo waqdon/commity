@@ -1,5 +1,6 @@
 package com.qdwang.demo.base;
 
+import com.qdwang.demo.skin.SkinManager;
 import com.qdwang.demo.utils.uiutil.ScreenUtil;
 
 /**
@@ -17,5 +18,6 @@ public class BaseApplication extends MultiDexApplication {
 
     private void init() {
 //        ScreenUtil.resetDensity(this);
+        SkinManager.getSkinManager().init(this);
     }
 }

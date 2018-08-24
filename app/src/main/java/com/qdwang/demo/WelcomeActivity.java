@@ -7,11 +7,14 @@ import android.content.pm.PackageManager;
 import android.content.res.AssetManager;
 import android.content.res.Resources;
 import android.os.Environment;
+import android.os.Handler;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.widget.ImageView;
 
 import com.qdwang.demo.base.BaseActivity;
+import com.qdwang.demo.skin.ObserverListener;
+import com.qdwang.demo.skin.SkinManager;
 
 import java.io.File;
 import java.lang.reflect.Method;
@@ -25,6 +28,7 @@ public class WelcomeActivity extends BaseActivity {
     @BindView(R.id.image_view)ImageView imageView;
 
     private String defPackage;
+    String path = Environment.getExternalStorageDirectory().getAbsolutePath()+"/theme-debug.zip";
 
     public static void toActivity(Context context){
         Intent intent =new Intent(context, WelcomeActivity.class);
@@ -37,25 +41,22 @@ public class WelcomeActivity extends BaseActivity {
         ButterKnife.bind(this);
         setSupportActionBar(toolbar);
 
-//        Resources resources = this.getResources();
-//        int id = getResourceId(this, "banner_ygph_sy", "drawable", "com.qdwang.theme");
-//        Log.e("yg===============", "id = " + id);
-//
-//        Drawable drawable = resources.getDrawable(id);
-//        imageView.setImageDrawable(drawable);
-
-
+        SkinManager.getSkinManager().load(path);
+//                int id = resources.getIdentifier("banner_ygph_sy", "drawable", defPackage);
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                imageView.setImageDrawable(SkinManager.getSkinManager().getDrawable("banner_ygph_sy"));
+            }
+        }, 200);
     }
 
     @Override
     protected void requestPermissions() {
         super.requestPermissions();
-        Resources resources = getResurces(this, Environment.getExternalStorageDirectory().getAbsolutePath()+"/theme-debug.zip");
+        Resources resources = getResurces(this, path);
 //        Log.e("yg=================", "Environment.getExternalStorageDirectory().getAbsolutePath()+\"theme-debug.apk\" = " + Environment.getExternalStorageDirectory().getAbsolutePath()+"/theme-debug.skin");
         Log.e("yg=================", "resources = " + resources);
-        int id = resources.getIdentifier("banner_ygph_sy", "drawable", defPackage);
-        imageView.setImageDrawable(resources.getDrawable(id));
-//        imageView.setImageResource(id);
     }
 
     /**
