@@ -6,15 +6,12 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.res.AssetManager;
 import android.content.res.Resources;
-import android.graphics.Bitmap;
-import android.graphics.drawable.Drawable;
 import android.os.Environment;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.widget.ImageView;
 
 import com.qdwang.demo.base.BaseActivity;
-import com.qdwang.demo.utils.PreferencesUtils;
 
 import java.io.File;
 import java.lang.reflect.Method;
@@ -26,6 +23,8 @@ public class WelcomeActivity extends BaseActivity {
 
     @BindView(R.id.toolbar)Toolbar toolbar;
     @BindView(R.id.image_view)ImageView imageView;
+
+    private String defPackage;
 
     public static void toActivity(Context context){
         Intent intent =new Intent(context, WelcomeActivity.class);
@@ -54,7 +53,7 @@ public class WelcomeActivity extends BaseActivity {
         Resources resources = getResurces(this, Environment.getExternalStorageDirectory().getAbsolutePath()+"/theme-debug.zip");
 //        Log.e("yg=================", "Environment.getExternalStorageDirectory().getAbsolutePath()+\"theme-debug.apk\" = " + Environment.getExternalStorageDirectory().getAbsolutePath()+"/theme-debug.skin");
         Log.e("yg=================", "resources = " + resources);
-        int id = resources.getIdentifier("banner_ygph_sy", "drawable", "com.qdwang.theme");
+        int id = resources.getIdentifier("banner_ygph_sy", "drawable", defPackage);
         imageView.setImageDrawable(resources.getDrawable(id));
 //        imageView.setImageResource(id);
     }
@@ -68,6 +67,9 @@ public class WelcomeActivity extends BaseActivity {
             if(file == null || !file.exists()){
                 return null;
             }
+            PackageManager pm = context.getPackageManager();
+            PackageInfo packageInfo = pm.getPackageArchiveInfo(skinPkgPath, PackageManager.GET_ACTIVITIES);
+            defPackage = packageInfo.packageName;
             AssetManager assetManager = AssetManager.class.newInstance();
             Method addAssetPath = assetManager.getClass().getMethod("addAssetPath", String.class);
             addAssetPath.invoke(assetManager, skinPkgPath);
