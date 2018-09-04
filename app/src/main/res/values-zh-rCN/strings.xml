@@ -15,4 +15,14 @@
     <string name="custom">自定义</string>
     <string name="confirm">确定</string>
     <string name="cancel">取消</string>
+
+
+
+
+    <string name="imi_toast_common_net_error"></string>
+    <string name="imi_toast_common_parse_error"></string>
+    <string name="imi_toast_common_server_error"></string>
+    <string name="imi_toast_common_net_timeout"></string>
+    <string name="imi_login_input_mail_error"></string>
+    <string name="imi_const_tip_charge"></string>
 </resources>

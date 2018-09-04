@@ -10,11 +10,15 @@ import android.widget.Toast;
 import com.afollestad.materialdialogs.color.ColorChooserDialog;
 import com.qdwang.demo.R;
 import com.qdwang.demo.base.BaseActivity;
+import com.qdwang.demo.net.MobileApi;
+import com.qdwang.demo.net.RtHttp;
+import com.qdwang.demo.net.abstracts.ApiSubscriber;
 import com.qdwang.demo.utils.ToastUtils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import io.reactivex.disposables.Disposable;
 
 /**
  * author: create by qdwang
@@ -37,6 +41,21 @@ public class SettingActivity extends BaseActivity implements ColorChooserDialog.
         toolbar.setTitle("设置");
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
+        RtHttp.with(this).setShowWaitingDialog(true)
+                .setObservable(MobileApi.response(null, 0))
+                .subscriber(new ApiSubscriber() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onNext(Object o) {
+
+                    }
+                });
     }
 
     @OnClick(R.id.btn)
