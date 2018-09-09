@@ -10,7 +10,6 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.qdwang.demo.R;
-import com.qdwang.demo.utils.uiutil.ScreenUtil;
 
 /**
  * author: create by qdwang
@@ -42,7 +41,6 @@ public class HomeAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-//        ScreenUtil.resetDensity(context.getApplicationContext());
         convertView =LayoutInflater.from(context).inflate(R.layout.item_listview_home, null);
         TextView tvMin = convertView.findViewById(R.id.tv_min);
         ImageView imageView = convertView.findViewById(R.id.image_view);

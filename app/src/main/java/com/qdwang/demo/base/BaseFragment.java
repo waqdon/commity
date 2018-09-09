@@ -3,8 +3,6 @@ package com.qdwang.demo.base;
 import android.content.Context;
 import android.support.v4.app.Fragment;
 
-import com.qdwang.demo.utils.uiutil.ScreenUtil;
-
 /**
  * author: create by qdwang
  * date: 2018/8/16 16:31

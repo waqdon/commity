@@ -7,12 +7,10 @@ import android.content.pm.PackageManager;
 import android.content.res.AssetManager;
 import android.content.res.Resources;
 import android.os.Environment;
-import android.os.Handler;
 import android.support.v7.widget.Toolbar;
 import android.widget.ImageView;
 
 import com.qdwang.demo.base.BaseActivity;
-import com.qdwang.demo.skin.SkinManager;
 
 import java.io.File;
 import java.lang.reflect.Method;
@@ -41,12 +39,12 @@ public class WelcomeActivity extends BaseActivity {
 
 //        SkinManager.getSkinManager().load(path);
 //                int id = resources.getIdentifier("banner_ygph_sy", "drawable", defPackage);
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                imageView.setImageDrawable(SkinManager.getSkinManager().getDrawable("banner_ygph_sy"));
-            }
-        }, 200);
+//        new Handler().postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//                imageView.setImageDrawable(SkinManager.getSkinManager().getDrawable("banner_ygph_sy"));
+//            }
+//        }, 200);
     }
 
     @Override

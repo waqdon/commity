@@ -12,7 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.qdwang.demo.utils.uiutil.ScreenUtil;
+import com.yingu.framework.screen.ScreenAdapter;
 
 /**
  * author: create by qdwang
@@ -37,7 +37,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        ScreenUtil.resetDensity(this);
+        ScreenAdapter.resetDensity(this);
     }
 
     @Override

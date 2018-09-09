@@ -5,7 +5,6 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.res.AssetManager;
 import android.content.res.Resources;
-import android.os.Environment;
 
 import java.io.File;
 import java.lang.reflect.Method;
