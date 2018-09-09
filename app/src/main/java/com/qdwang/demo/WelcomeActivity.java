@@ -9,36 +9,16 @@ import android.content.res.Resources;
 import android.os.Environment;
 import android.os.Handler;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.widget.ImageView;
 
 import com.qdwang.demo.base.BaseActivity;
-import com.qdwang.demo.http.BaseModel;
-import com.qdwang.demo.http.BaseRespons;
-import com.qdwang.demo.http.RetrofitHelper;
-import com.qdwang.demo.retrofit.CmsService;
-import com.qdwang.demo.retrofit.DataParams;
 import com.qdwang.demo.skin.SkinManager;
 
 import java.io.File;
-import java.io.IOException;
 import java.lang.reflect.Method;
-import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import io.reactivex.Observer;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.Disposable;
-import io.reactivex.schedulers.Schedulers;
-import okhttp3.FormBody;
-import okhttp3.MediaType;
-import okhttp3.RequestBody;
-import okhttp3.ResponseBody;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
 
 public class WelcomeActivity extends BaseActivity {
 
@@ -59,7 +39,7 @@ public class WelcomeActivity extends BaseActivity {
         ButterKnife.bind(this);
         setSupportActionBar(toolbar);
 
-        SkinManager.getSkinManager().load(path);
+//        SkinManager.getSkinManager().load(path);
 //                int id = resources.getIdentifier("banner_ygph_sy", "drawable", defPackage);
         new Handler().postDelayed(new Runnable() {
             @Override
@@ -67,84 +47,13 @@ public class WelcomeActivity extends BaseActivity {
                 imageView.setImageDrawable(SkinManager.getSkinManager().getDrawable("banner_ygph_sy"));
             }
         }, 200);
-
-
-        Retrofit retrofit = new Retrofit.Builder().baseUrl("http:wwww.wanandroid.com/").build();
-        CmsService service = retrofit.create(CmsService.class);
-        service.getBanner().subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<ResponseBody>() {
-                    @Override
-                    public void onSubscribe(Disposable d) {
-                        //为请求提供一个取消的手段
-                    }
-
-                    @Override
-                    public void onNext(ResponseBody responseBody) {
-                        //请求成功
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                        //请求失败
-                    }
-
-                    @Override
-                    public void onComplete() {
-                        //请求完成
-                    }
-                });
-//        Call<ResponseBody> call = service.getBanner();
-//        call.enqueue(new Callback<ResponseBody>() {
-//            @Override
-//            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-//                try {
-//                    Log.e("yg ==" ,"yg ==" + response.body().string());
-//                } catch (IOException e) {
-//                    e.printStackTrace();
-//                }
-//            }
-//
-//            @Override
-//            public void onFailure(Call<ResponseBody> call, Throwable t) {
-//                Log.e("yg ==" ,"call ==" + call);
-//            }
-//        });
-
-
-        RequestBody requestBody = RequestBody.create(MediaType.parse("application/x-www-form-urlencoded, utf-8"), "");
-        RetrofitHelper.getApiService().getBase(requestBody)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<BaseRespons<BaseModel>>() {
-                    @Override
-                    public void onSubscribe(Disposable d) {
-
-                    }
-
-                    @Override
-                    public void onNext(BaseRespons<BaseModel> baseModelBaseRespons) {
-
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-
-                    }
-
-                    @Override
-                    public void onComplete() {
-
-                    }
-                });
     }
 
     @Override
     protected void requestPermissions() {
         super.requestPermissions();
-        Resources resources = getResurces(this, path);
-//        Log.e("yg=================", "Environment.getExternalStorageDirectory().getAbsolutePath()+\"theme-debug.apk\" = " + Environment.getExternalStorageDirectory().getAbsolutePath()+"/theme-debug.skin");
-        Log.e("yg=================", "resources = " + resources);
+//        Resources resources = getResurces(this, path);
+//        Log.e("yg=================", "resources = " + resources);
     }
 
     /**

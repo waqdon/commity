@@ -70,7 +70,7 @@ public class MainActivity extends BaseActivity {
             } else if (id == R.id.nav_slideshow) {
                 WelcomeActivity.toActivity(MainActivity.this);
             } else if (id == R.id.nav_manage) {
-                SettingActivity.toActivity(MainActivity.this);
+
             } else if (id == R.id.nav_share) {
 
             } else if (id == R.id.nav_send) {
