@@ -1,6 +1,5 @@
 package com.yingu.framework.net.base;
 
-import com.yingu.framework.net.exceptions.ApiThrowExcepitionFun1;
 import com.yingu.framework.net.parser.GsonParser;
 import com.yingu.framework.paramter.CommonParams;
 
@@ -8,9 +7,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import io.reactivex.Observable;
-import io.reactivex.Scheduler;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.schedulers.Schedulers;
 
 
 /**
@@ -40,54 +36,9 @@ public class BaseApi {
         return params;
     }
 
-    public static Observable getObservable(Observable obsvable){
-        if(observable == null){
-            observable = new ObserableBuilder(obsvable)
+    public Observable getObservable(Observable obsvable){
+        return observable = new ObserableBuilder(obsvable)
 //                    .addApiException()
                     .build();
-        }
-        return observable;
-    }
-
-    public static class ObserableBuilder {
-
-        private Observable observable;
-        private boolean apiException;
-        private Scheduler subscribeScheduler;
-        private Scheduler obscerveScheduler;
-
-        public void setObscerveScheduler(Scheduler obscerveScheduler) {
-            this.obscerveScheduler = obscerveScheduler;
-        }
-
-        public void setSubscribeScheduler(Scheduler subscribeScheduler) {
-            this.subscribeScheduler = subscribeScheduler;
-        }
-
-        public ObserableBuilder(Observable o) {
-            this.observable = o;
-        }
-
-        public ObserableBuilder addApiException() {
-            apiException = true;
-            return this;
-        }
-
-        public Observable build() {
-            if (apiException) {
-                observable = observable.flatMap(new ApiThrowExcepitionFun1());
-            }
-            if (subscribeScheduler != null) {
-                observable = observable.subscribeOn(subscribeScheduler);
-            } else {
-                observable = observable.subscribeOn(Schedulers.io());
-            }
-            if (obscerveScheduler != null) {
-                observable = observable.observeOn(obscerveScheduler);
-            } else {
-                observable = observable.observeOn(AndroidSchedulers.mainThread());
-            }
-            return observable;
-        }
     }
 }
